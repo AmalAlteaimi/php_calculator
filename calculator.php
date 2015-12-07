@@ -57,7 +57,7 @@ class Calculator {
     $first_num = reset($array);
     $second_num = end($array);
 
-    return $this->result = floatval($first_num) + floatval($second_num );
+    return $this->result = floatval($first_num) + floatval($second_num);
 
   }
 
@@ -89,7 +89,7 @@ class Calculator {
     $first_num = reset($array);
     $second_num = end($array);
 
-    return $this->result = pow($first_num, $second_num);
+    return $this->result = pow(floatval($first_num), floatval($second_num));
 
   }
 
@@ -108,22 +108,19 @@ class Calculator {
 //outputs result, thats a completely calculated equation
 
   public function calculateEquation($array){
-    $place_holder = 0;
-    //look into storing initial data
-    //[[1, +, 1], [-, 3], [+, 4]]
+
     $length = count($array);
     for ($i = 0; $i <= $length; $i++ ){
-      if ($i < count($array)){
-
-        $new_num = $this->selectOperator($array[$i]);
-        $array[$i + 1][0] = $new_num;
+      if ($i < $length){
+        $this->selectOperator($array[$i]);
+        $array[$i + 1][0] = $this->result;
         unset($array[$i]);
 
       } else {
-        return $place_holder = $this->selectOperator($array[$i]);
+        $this->selectOperator($array[$i]);
       }
     }
-    return $this->result = $place_holder;
+    return $this->result;
   }
 
 }
