@@ -23,7 +23,7 @@ $( document ).ready(function() {
     request.done(function(response){
       console.log(response);
       $(".calc_output").text(response);
-     // $(".u_input").val("");
+      $(".u_input").val("");
     });
  });
 });
