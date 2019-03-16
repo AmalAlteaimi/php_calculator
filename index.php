@@ -54,7 +54,7 @@
 
     <div class="result">
         <h2>Result</h2>
-        <p class="calc_output">$result</p>
+        <p class="calc_output"></p>
     </div>
 
     </body>
